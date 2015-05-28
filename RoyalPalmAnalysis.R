@@ -58,23 +58,23 @@ colnames(diedPerYear) <- c("Year","Died_Count")
 qplot(diedPerYear[,1],diedPerYear[,2],ylab="Count of Interred Persons Died",xlab="Year",main="Count of Interred Persons Died Per Year") ## Plot the deaths
 ## get the average life span for use in plots
 avgLifeSpan <- mean(rpc$Life_Span,na.rm=T)
-## get sirnames
-sirNames <- sort(unique(rpc$Last_Name))
-## get a count of how many interred per sirName
+## get surnames
+surnames <- sort(unique(rpc$Last_Name))
+## get a count of how many interred per surname
 s3 <- as.vector(c())
-for (i in 1:length(sirNames)) {
-    s3[i] <- nrow(filter(rpc, grepl(sirNames[i],rpc$Last_Name)))
+for (i in 1:length(surnames)) {
+    s3[i] <- nrow(filter(rpc, grepl(surnames[i],rpc$Last_Name)))
 }
-countSirNames <-  cbind(sirNames,s3)  ## Matrix (Sirname, Count)
-colnames(countSirNames) <- c("Sirname","Count")
-countSirNames <- as.data.frame(countSirNames)  ## convert to data.frame so that we can mix classes
-countSirNames[,1] <- as.character(countSirNames[,1]) ## set the sirnames to character class
-countSirNames[,2] <- as.numeric(countSirNames[,2]) ## set the counts to numeric class
+countsurnames <-  cbind(surnames,s3)  ## Matrix (surname, Count)
+colnames(countsurnames) <- c("surname","Count")
+countsurnames <- as.data.frame(countsurnames)  ## convert to data.frame so that we can mix classes
+countsurnames[,1] <- as.character(countsurnames[,1]) ## set the surnames to character class
+countsurnames[,2] <- as.numeric(countsurnames[,2]) ## set the counts to numeric class
 ## Clean up time
 rm("s","s2","s3","i","m","l")
 ## Give some information about what just happened and options now
 print(
-    "Data reading, formatting, and analysis have been completed. See insert URL for a visual display of the output data. Variables left in R environment: 1) rpc - this the clean and tidy data set for Royal Palm cemetery [data frame] 2) avgLifeSpan - this is the mean of all observations where we have both born and died data [numeric value] 3) bornYears - these are the years in which persons interred at RPC were born [numeric vector] 4) diedYears - these are the years in which persons interred at RPC died [numeric vector] 5) bornPerYear - this is number of persons interred at RPC born per each year [matrix] 6) diedPerYear - this is count of persons interred at RPC died per each year [matrix] 7) sirNames - this is a list of unique sirnames found amongst persons interred at RPC [character vector] 8) countSirNames - this is count of persons interred at RPC per sir name [data frame]"
+    "Data reading, formatting, and analysis have been completed. See insert URL for a visual display of the output data. Variables left in R environment: 1) rpc - this the clean and tidy data set for Royal Palm cemetery [data frame] 2) avgLifeSpan - this is the mean of all observations where we have both born and died data [numeric value] 3) bornYears - these are the years in which persons interred at RPC were born [numeric vector] 4) diedYears - these are the years in which persons interred at RPC died [numeric vector] 5) bornPerYear - this is number of persons interred at RPC born per each year [matrix] 6) diedPerYear - this is count of persons interred at RPC died per each year [matrix] 7) surnames - this is a list of unique surnames found amongst persons interred at RPC [character vector] 8) countsurnames - this is count of persons interred at RPC per surname [data frame]"
 )
 ## Final cleanup
-## rm("rpc","avgLifeSpan","bornYears","diedYears","bornPerYear","diedPerYear","sirNames","countSirNames")
+## rm("rpc","avgLifeSpan","bornYears","diedYears","bornPerYear","diedPerYear","surnames","countsurnames")
