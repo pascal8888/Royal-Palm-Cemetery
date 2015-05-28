@@ -50,3 +50,16 @@ Smith, Cesar Tolentino, Todd Williams.
 This index is provided by the Pinellas Genealogy Society.  For availability of 
 complete transcription and to view a cemetery photograph, visit the Pinellas 
 Genealogy Society at http://www.rootsweb.com/~flpgs.
+
+#----------------------------------------
+##Repository Contents
+###RoyalPalmAnalysis.R
+This is the R script that takes the raw data captured in the project, cleans it, and provides a tidy data set and key derived data to aid with analysis. The script is not yet finished - the intent is to use the *shiny* R package to publish an interactive web site based on the data.
+###RoyalPalmAnalysis-scrapples.R
+These are just code snippets that can help with analysis.  Saved to spur thoughts and memories for the data analyst.
+###README.md
+This document
+###RPC.txt
+This is raw source file captured in the data-collection project. The introduction contained in this document is displayed above (lines 5 - 52)  RoyalPalmAnalysis.R contains extensive comments about the data anamolies found, the steps to correct some, and those that remain in the data after cleansing.
+###License
+This has not yet been decided as of 05/28/2015, but should be included before releasing to the public.
