@@ -63,3 +63,5 @@ This document
 This is raw source file captured in the data-collection project. The introduction contained in this document is displayed above (lines 5 - 52)  RoyalPalmAnalysis.R contains extensive comments about the data anamolies found, the steps to correct some, and those that remain in the data after cleansing.
 ###License
 This has not yet been decided as of 05/28/2015, but should be included before releasing to the public.
+###Codebook.md
+This codebook describes the variables of the rpc data.frame which is an output of the RoyalPalmAnalysis.R script
