@@ -1,5 +1,5 @@
 # Royal-Palm-Cemetery
-A project to clean and analyze raw data collected about interments at Royal Palm Cemetary 101 55th Street South, Saint Petersburg Florida, 33707
+A project to clean and analyze raw data collected during 2000-2001 about interments at Royal Palm Cemetary 101 55th Street South, Saint Petersburg Florida, 33707.
 
 ### From the source data:
 ROYAL PALM CEMETERY, St. Petersburg, Pinellas County, Florida
