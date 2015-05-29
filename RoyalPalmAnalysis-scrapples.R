@@ -14,3 +14,7 @@
 # l <- filter(rpc, grepl(1984,rpc$Died))
 # l <- which(bornYears > 1800,arr.ind=T)
 # bornYears[l]
+# qplot(rpc$Died[200:400])
+# qplot(rpc$Born[200:400])
+# qplot(rpc$Died[200:400],rpc$Born[200:400])
+# qplot(diedPerYear[100:120,1],diedPerYear[100:120,2],ylab="Count of Interred Persons Died",xlab="Year",main="Count of Interred Persons Died Per Year")
