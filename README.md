@@ -65,3 +65,5 @@ This is raw source file captured in the data-collection project. The introductio
 This has not yet been decided as of 05/28/2015, but should be included before releasing to the public.
 ###Codebook.md
 This codebook describes the variables of the rpc data.frame which is an output of the RoyalPalmAnalysis.R script
+###RPC - newsletter.docx
+This is a report written by James Schacht and published in his neighborhood newsletter about insights derived by analyzing this data.
