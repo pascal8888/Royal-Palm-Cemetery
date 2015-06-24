@@ -31,7 +31,7 @@ rpc$Born <- sub(" b.","",rpc$Born)
 rpc$Born <- as.numeric(rpc$Born)
 rpc$Died <- as.numeric(rpc$Died)
 ## add lifeSpan column
-rpc <- rpc %>% mutate(Life_Span=ifelse(Died>1700,Died-Born,NA))
+rpc <- rpc %>% mutate(Life_Span=ifelse(Born > 1700 & Died> 1700 & Died > Born,Died-Born,NA))
 ##
 ## Data Cleaning Complete
 bornYears <- unique(rpc$Born)  ## Find which years interred persons where born
@@ -47,7 +47,9 @@ for (i in 1:length(bornYears)) {
 }
 bornPerYear <- cbind(bornYears,s) ## Matrix (Year, Born_Count)
 colnames(bornPerYear) <- c("Year","Born_Count")
+png("RPC1.png", width=400, height=400)
 qplot(bornPerYear[,1],bornPerYear[,2],ylab="Count of Interred Persons Born",xlab="Year",main="Count of Interred Persons Born Per Year") ## Plot the births
+dev.off()
 ## Figure out how many people died each year (result == diedPerYear)
 s2 <- as.vector(c())
 for (i in 1:length(diedYears)) {
@@ -55,7 +57,9 @@ for (i in 1:length(diedYears)) {
 }
 diedPerYear <- cbind(diedYears,s2)  ## Matrix (Year, Died_Count)
 colnames(diedPerYear) <- c("Year","Died_Count")
+png("RPC2.png", width=400, height=400)
 qplot(diedPerYear[,1],diedPerYear[,2],ylab="Count of Interred Persons Died",xlab="Year",main="Count of Interred Persons Died Per Year") ## Plot the deaths
+dev.off()
 ## get the average life span for use in plots
 avgLifeSpan <- mean(rpc$Life_Span,na.rm=T)
 ## get surnames
@@ -78,3 +82,6 @@ print(
 )
 ## Final cleanup
 ## rm("rpc","avgLifeSpan","bornYears","diedYears","bornPerYear","diedPerYear","surnames","countsurnames")
+#png("RPC3.png", width=400, height=400)
+#qplot(rpc$Life_Span,xlab="Life Span in Years",ylab="Number Interred",binwidth=1,main="Count of Life Spans")
+#dev.off()
